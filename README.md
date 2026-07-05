@@ -41,7 +41,8 @@ TripSync/
 ├── js/                   
 ├── server/                
 
----
+```
+
 ## APIs used
 
 | API | What it's used for | Free tier |
