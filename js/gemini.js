@@ -12,7 +12,7 @@
 // for renderMarkdown() to turn Gemini's Markdown into safe, formatted HTML.
 // ==========================================================================
 
-const BACKEND_URL = "http://localhost:3001"; // change if you deploy the backend elsewhere
+const BACKEND_URL = "https://tripsync-fog5.onrender.com"; // deployed backend (was localhost:3001 for local dev)
 
 async function getItinerarySuggestion(destination, days, groupSize) {
   const response = await fetch(`${BACKEND_URL}/api/itinerary`, {
