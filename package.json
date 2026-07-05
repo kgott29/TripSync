@@ -1,0 +1,12 @@
+{
+  "name": "tripsync-frontend",
+  "version": "1.0.0",
+  "description": "TripSync frontend static file server (for Render Web Service deployment)",
+  "main": "frontend-server.js",
+  "scripts": {
+    "start": "node frontend-server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
