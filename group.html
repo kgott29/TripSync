@@ -10,6 +10,14 @@
 </head>
 <body>
 
+<!-- Decorative flight path — purely visual, screen readers skip it -->
+<div class="flight-bg" aria-hidden="true">
+  <svg viewBox="0 0 1080 700" preserveAspectRatio="none">
+    <path d="M -50 620 C 220 520, 420 160, 1130 70" fill="none" stroke="var(--teal)" stroke-width="2" stroke-dasharray="7 11" opacity="0.45"/>
+  </svg>
+  <div class="plane-icon">✈</div>
+</div>
+
 <div class="page">
   <nav class="top-nav">
     <a href="index.html" class="logo"><span class="dot"></span>TripSync</a>
@@ -17,6 +25,8 @@
 
   <!-- Ticket header: trip name + join code + members -->
   <div class="ticket">
+    <span class="notch notch-left"></span>
+    <span class="notch notch-right"></span>
     <div class="ticket-trip">
       <span class="trip-eyebrow">Trip</span>
       <h1 id="trip-name-display">Loading…</h1>
@@ -34,6 +44,8 @@
 
   <!-- Destination poll + weather -->
   <section class="feature-card">
+    <span class="notch notch-left"></span>
+    <span class="notch notch-right"></span>
     <span class="feature-tag">Destination poll</span>
     <h3>Where should we go?</h3>
     <form id="add-option-form" class="inline-form">
@@ -46,6 +58,8 @@
 
   <!-- Real-time group chat -->
   <section class="feature-card">
+    <span class="notch notch-left"></span>
+    <span class="notch notch-right"></span>
     <span class="feature-tag">Group chat</span>
     <h3>Chat</h3>
     <div id="chat-messages" class="chat-messages"></div>
@@ -57,6 +71,8 @@
 
   <!-- AI itinerary suggestions -->
   <section class="feature-card">
+    <span class="notch notch-left"></span>
+    <span class="notch notch-right"></span>
     <span class="feature-tag">AI itinerary</span>
     <h3>Get a suggested itinerary</h3>
     <form id="itinerary-form" class="itinerary-form">

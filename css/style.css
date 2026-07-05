@@ -73,6 +73,8 @@ input:focus-visible {
   max-width: 1080px;
   margin: 0 auto;
   padding: 32px 24px 80px;
+  position: relative;
+  z-index: 1;
 }
 
 .top-nav {
@@ -154,7 +156,6 @@ input:focus-visible {
   border-radius: var(--radius);
   padding: 28px;
   position: relative;
-  overflow: hidden;
 }
 
 .panel::before {
@@ -285,18 +286,8 @@ input:focus-visible {
   position: relative;
 }
 
-.ticket::after {
-  content: '';
-  position: absolute;
-  right: 200px;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  border-left: 2px dashed var(--border);
-}
-
 @media (max-width: 720px) {
-  .ticket::after { display: none; }
+  .ticket-code { border-left: none; padding-left: 0; }
 }
 
 .ticket-trip .trip-eyebrow {
@@ -314,6 +305,8 @@ input:focus-visible {
 .ticket-code {
   text-align: center;
   min-width: 180px;
+  border-left: 2px dashed var(--border);
+  padding-left: 24px;
 }
 
 .ticket-code .code-label {
@@ -410,6 +403,7 @@ input:focus-visible {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
+  position: relative;
 }
 
 .feature-tag {
@@ -614,3 +608,59 @@ input:focus-visible {
 }
 
 @keyframes blink { 50% { opacity: 0; } }
+
+/* ==========================================================================
+   Travel theme extras — flight path background + ticket notches
+   ========================================================================== */
+
+.flight-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.flight-bg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.plane-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  color: var(--accent);
+  opacity: 0.55;
+  offset-path: path('M -50 620 C 220 520, 420 160, 1130 70');
+  offset-rotate: auto;
+  animation: fly-along-path 32s linear infinite;
+}
+
+@keyframes fly-along-path {
+  from { offset-distance: 0%; }
+  to   { offset-distance: 100%; }
+}
+
+/* Ticket-stub notches — the classic torn-edge look. Add
+   <span class="notch notch-left"></span><span class="notch notch-right"></span>
+   as the first children of any .ticket, .panel, or .feature-card. */
+
+.notch {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+  z-index: 2;
+}
+
+.notch-left { left: -10px; }
+.notch-right { right: -10px; }
+
+@media (max-width: 720px) {
+  .notch { display: none; }
+}
